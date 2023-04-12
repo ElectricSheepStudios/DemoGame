@@ -4,6 +4,7 @@
 #include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraExperienceDefinition.h"
 #include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraWorldSettings.h"
 #include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\System\LyraAssetManager.h"
+#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraExperienceManagerComponent.h"
 
 
 #include "Kismet/GameplayStatics.h"
@@ -32,6 +33,8 @@ void ADemoGameMode::InitGame(const FString& MapName, const FString& Options, FSt
 	//@TODO: Eventually only do this for PIE/auto
 	GetWorld()->GetTimerManager().SetTimerForNextTick(this, &ThisClass::HandleMatchAssignmentIfNotExpectingOne);
 }
+
+
 
 void ADemoGameMode::HandleMatchAssignmentIfNotExpectingOne()
 {
@@ -104,8 +107,26 @@ void ADemoGameMode::HandleMatchAssignmentIfNotExpectingOne()
 		ExperienceIdSource = TEXT("Default");
 	}
 
-	//OnMatchAssignmentGiven(ExperienceId, ExperienceIdSource);
+	OnMatchAssignmentGiven(ExperienceId, ExperienceIdSource);
 	
 }
 
 
+void ADemoGameMode::OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, const FString& ExperienceIdSource)
+{
+
+#if WITH_SERVER_CODE
+	if (ExperienceId.IsValid())
+	{
+		//UE_LOG(LogLyraExperience, Log, TEXT("Identified experience %s (Source: %s)"), *ExperienceId.ToString(), *ExperienceIdSource);
+
+		//ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
+		//check(ExperienceComponent);
+		//ExperienceComponent->ServerSetCurrentExperience(ExperienceId);
+	}
+	else
+	{
+		//UE_LOG(LogLyraExperience, Error, TEXT("Failed to identify experience, loading screen will stay up forever"));
+	}
+#endif
+}

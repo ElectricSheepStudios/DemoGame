@@ -69,7 +69,7 @@ protected:
 	//void OnExperienceLoaded(const ULyraExperienceDefinition* CurrentExperience);
 	//bool IsExperienceLoaded() const;
 
-	//void OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, const FString& ExperienceIdSource);
+	void OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, const FString& ExperienceIdSource);
 
 	void HandleMatchAssignmentIfNotExpectingOne();
 };

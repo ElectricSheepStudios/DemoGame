@@ -23,10 +23,12 @@ public class DemoGame : ModuleRules
             new string[] {
                 "Core",
                 "CoreUObject",
-                "Engine", 
+                "Engine",
+                "GameFeatures",
                 "InputCore",
                 "ModularGameplay",
                 "ModularGameplayActors",
+                "CommonLoadingScreen"
             }
         );
 
