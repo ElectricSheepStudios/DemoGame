@@ -30,7 +30,8 @@ public class DemoGame : ModuleRules
                 "ModularGameplay",
                 "ModularGameplayActors",
                 "CommonLoadingScreen",
-                "ControlFlows"
+                "ControlFlows",
+                "GameplayTags"
             }
         );
 
