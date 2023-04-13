@@ -120,9 +120,9 @@ void ADemoGameMode::OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, const F
 	{
 		//UE_LOG(LogLyraExperience, Log, TEXT("Identified experience %s (Source: %s)"), *ExperienceId.ToString(), *ExperienceIdSource);
 
-		//ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
-		//check(ExperienceComponent);
-		//ExperienceComponent->ServerSetCurrentExperience(ExperienceId);
+		ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
+		check(ExperienceComponent);
+		ExperienceComponent->ServerSetCurrentExperience(ExperienceId);
 	}
 	else
 	{

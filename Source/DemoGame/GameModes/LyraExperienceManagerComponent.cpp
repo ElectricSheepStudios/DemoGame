@@ -57,7 +57,7 @@ ULyraExperienceManagerComponent::ULyraExperienceManagerComponent(const FObjectIn
 #if WITH_SERVER_CODE
 void ULyraExperienceManagerComponent::ServerSetCurrentExperience(FPrimaryAssetId ExperienceId)
 {
-	/*ULyraAssetManager& AssetManager = ULyraAssetManager::Get();
+	ULyraAssetManager& AssetManager = ULyraAssetManager::Get();
 	FSoftObjectPath AssetPath = AssetManager.GetPrimaryAssetPath(ExperienceId);
 	TSubclassOf<ULyraExperienceDefinition> AssetClass = Cast<UClass>(AssetPath.TryLoad());
 	check(AssetClass);
@@ -66,7 +66,7 @@ void ULyraExperienceManagerComponent::ServerSetCurrentExperience(FPrimaryAssetId
 	check(Experience != nullptr);
 	check(CurrentExperience == nullptr);
 	CurrentExperience = Experience;
-	StartExperienceLoad();*/
+	StartExperienceLoad();
 }
 #endif
 

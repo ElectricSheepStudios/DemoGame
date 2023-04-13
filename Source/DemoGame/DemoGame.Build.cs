@@ -26,15 +26,19 @@ public class DemoGame : ModuleRules
                 "Engine",
                 "GameFeatures",
                 "InputCore",
+                "GameplayAbilities",
                 "ModularGameplay",
                 "ModularGameplayActors",
-                "CommonLoadingScreen"
+                "CommonLoadingScreen",
+                "ControlFlows"
             }
         );
 
         PrivateDependencyModuleNames.AddRange(
             new string[] {
-
+                "CommonGame",
+                "CommonUser",
+                "CommonUI"
             }
         );
 
