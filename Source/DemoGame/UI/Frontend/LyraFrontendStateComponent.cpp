@@ -149,7 +149,7 @@ void ULyraFrontendStateComponent::FlowStep_TryShowPressStartScreen(FControlFlowN
 	// Add the Press Start screen, move to the next flow when it deactivates.
 	if (UPrimaryGameLayout* RootLayout = UPrimaryGameLayout::GetPrimaryGameLayoutForPrimaryPlayer(this))
 	{
-		/*constexpr bool bSuspendInputUntilComplete = true;
+		constexpr bool bSuspendInputUntilComplete = true;
 		RootLayout->PushWidgetToLayerStackAsync<UCommonActivatableWidget>(FrontendTags::TAG_UI_LAYER_MENU, bSuspendInputUntilComplete, PressStartScreenClass,
 			[this, SubFlow](EAsyncWidgetLayerState State, UCommonActivatableWidget* Screen) {
 				switch (State)
@@ -165,7 +165,7 @@ void ULyraFrontendStateComponent::FlowStep_TryShowPressStartScreen(FControlFlowN
 					SubFlow->ContinueFlow();
 					return;
 				}
-			});*/
+			});
 	}
 }
 
@@ -197,7 +197,7 @@ void ULyraFrontendStateComponent::FlowStep_TryShowMainScreen(FControlFlowNodeRef
 {
 	if (UPrimaryGameLayout* RootLayout = UPrimaryGameLayout::GetPrimaryGameLayoutForPrimaryPlayer(this))
 	{
-		/*
+		
 		constexpr bool bSuspendInputUntilComplete = true;
 		RootLayout->PushWidgetToLayerStackAsync<UCommonActivatableWidget>(FrontendTags::TAG_UI_LAYER_MENU, bSuspendInputUntilComplete, MainScreenClass,
 			[this, SubFlow](EAsyncWidgetLayerState State, UCommonActivatableWidget* Screen) {
@@ -213,6 +213,6 @@ void ULyraFrontendStateComponent::FlowStep_TryShowMainScreen(FControlFlowNodeRef
 					return;
 				}
 			});
-			*/
+			
 	}
 }
