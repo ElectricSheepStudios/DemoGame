@@ -1,10 +1,12 @@
 #include "DemoGameMode.h"
 //#include "LyraLogChannels.h"
 //#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\Development\LyraDeveloperSettings.h"
-#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraExperienceDefinition.h"
-#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraWorldSettings.h"
-#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\System\LyraAssetManager.h"
-#include "C:\Users\HoeJa\OneDrive\Desktop\DemoGame\DemoGame\Source\DemoGame\GameModes\LyraExperienceManagerComponent.h"
+#include "GameModes\LyraExperienceDefinition.h"
+#include "GameModes\LyraWorldSettings.h"
+#include "System\LyraAssetManager.h"
+#include "GameModes\LyraExperienceManagerComponent.h"
+#include "Character\DemoPawnData.h"
+
 
 
 #include "Kismet/GameplayStatics.h"
@@ -25,6 +27,47 @@ ADemoGameMode::ADemoGameMode(const FObjectInitializer& ObjectInitializer)
 	//DefaultPawnClass = ALyraCharacter::StaticClass();
 	//HUDClass = ALyraHUD::StaticClass();
 }
+
+const UDemoPawnData* ADemoGameMode::GetPawnDataForController(const AController* InController) const
+{
+	// See if pawn data is already set on the player state
+	/*if (InController != nullptr)
+	{
+		if (const ALyraPlayerState* LyraPS = InController->GetPlayerState<ALyraPlayerState>())
+		{
+			if (const ULyraPawnData* PawnData = LyraPS->GetPawnData<ULyraPawnData>())
+			{
+				return PawnData;
+			}
+		}
+	}
+
+	// If not, fall back to the the default for the current experience
+	check(GameState);
+	ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
+	check(ExperienceComponent);
+
+	if (ExperienceComponent->IsExperienceLoaded())
+	{
+		const ULyraExperienceDefinition* Experience = ExperienceComponent->GetCurrentExperienceChecked();
+		if (Experience->DefaultPawnData != nullptr)
+		{
+			return Experience->DefaultPawnData;
+		}
+
+		// Experience is loaded and there's still no pawn data, fall back to the default for now
+		return ULyraAssetManager::Get().GetDefaultPawnData();
+	}*/
+
+
+	// Experience not loaded yet, so there is no pawn data to be had
+
+	return nullptr;
+}
+
+
+
+
 
 void ADemoGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
 {

@@ -8,7 +8,7 @@
 #include "DemoGameMode.generated.h"
 
 
-//class ULyraPawnData;
+class UDemoPawnData;
 //class ULyraExperienceDefinition;
 
 /**
@@ -32,7 +32,7 @@ public:
 
 	ADemoGameMode(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
-	//const ULyraPawnData* GetPawnDataForController(const AController* InController) const;
+	const UDemoPawnData* GetPawnDataForController(const AController* InController) const;
 
 	//~AGameModeBase interface
 	virtual void InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage) override;
