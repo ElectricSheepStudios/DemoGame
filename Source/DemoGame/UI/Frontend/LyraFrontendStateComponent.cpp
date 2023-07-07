@@ -54,7 +54,7 @@ void ULyraFrontendStateComponent::EndPlay(const EEndPlayReason::Type EndPlayReas
 	Super::EndPlay(EndPlayReason);
 }
 
-bool ULyraFrontendStateComponent::ShouldShowLoadingScreen(FString& OutReason) const
+/*bool ULyraFrontendStateComponent::ShouldShowLoadingScreen(FString& OutReason) const
 {
 	if (bShouldShowLoadingScreen)
 	{
@@ -73,7 +73,7 @@ bool ULyraFrontendStateComponent::ShouldShowLoadingScreen(FString& OutReason) co
 	}
 
 	return false;
-}
+}*/
 
 void ULyraFrontendStateComponent::OnExperienceLoaded(const ULyraExperienceDefinition* Experience)
 {

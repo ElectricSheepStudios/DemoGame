@@ -6,7 +6,7 @@
 #include "CoreMinimal.h"
 #include "Components/GameStateComponent.h"
 #include "GameFeaturePluginOperationResult.h"
-#include "C:/Users/HoeJa/OneDrive/Desktop/DemoGame/DemoGame/Plugins/CommonLoadingScreen/Source/CommonLoadingScreen/Public/LoadingProcessInterface.h"
+//#include "C:/Users/HoeJa/OneDrive/Desktop/DemoGame/DemoGame/Plugins/CommonLoadingScreen/Source/CommonLoadingScreen/Public/LoadingProcessInterface.h"
 #include "E:/EpicGames/Epic Games/UE_5.0/Engine/Plugins/Experimental/ControlFlows/Source/ControlFlows/Public/ControlFlow.h"
 
 
@@ -19,7 +19,7 @@ class ULyraExperienceDefinition;
 class UCommonUserInfo;
 
 UCLASS(Abstract)
-class ULyraFrontendStateComponent : public UGameStateComponent, public ILoadingProcessInterface
+class ULyraFrontendStateComponent : public UGameStateComponent//, public ILoadingProcessInterface
 {
 	GENERATED_BODY()
 
@@ -33,7 +33,7 @@ public:
 	//~End of UActorComponent interface
 
 	//~ILoadingProcessInterface interface
-	virtual bool ShouldShowLoadingScreen(FString& OutReason) const override;
+	//virtual bool ShouldShowLoadingScreen(FString& OutReason) const override;
 	//~End of ILoadingProcessInterface
 
 private:

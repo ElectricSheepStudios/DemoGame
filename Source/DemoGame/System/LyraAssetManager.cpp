@@ -37,7 +37,7 @@ ULyraAssetManager& ULyraAssetManager::Get()
 		return *Singleton;
 	}
 
-//	UE_LOG(LogLyra, Fatal, TEXT("Invalid AssetManagerClassName in DefaultEngine.ini.  It must be set to LyraAssetManager!"));
+	//UE_LOG(LogLyra, Fatal, TEXT("Invalid AssetManagerClassName in DefaultEngine.ini.  It must be set to LyraAssetManager!"));
 
 	// Fatal error above prevents this from being called.
 	return *NewObject<ULyraAssetManager>();
