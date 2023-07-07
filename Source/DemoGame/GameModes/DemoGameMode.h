@@ -9,7 +9,8 @@
 
 
 class UDemoPawnData;
-//class ULyraExperienceDefinition;
+class ULyraExperienceDefinition;
+
 
 /**
  * Post login event, triggered when a player joins the game as well as after non-seamless ServerTravel

@@ -6,6 +6,7 @@
 #include "System\LyraAssetManager.h"
 #include "GameModes\LyraExperienceManagerComponent.h"
 #include "Character\DemoPawnData.h"
+#include "Player\DemoPlayerState.h"
 
 
 
@@ -23,7 +24,7 @@ ADemoGameMode::ADemoGameMode(const FObjectInitializer& ObjectInitializer)
 	//GameSessionClass = ALyraGameSession::StaticClass();
 	//PlayerControllerClass = ALyraPlayerController::StaticClass();
 	//ReplaySpectatorPlayerControllerClass = ALyraReplayPlayerController::StaticClass();
-	//PlayerStateClass = ALyraPlayerState::StaticClass();
+	PlayerStateClass = ADemoPlayerState::StaticClass();
 	//DefaultPawnClass = ALyraCharacter::StaticClass();
 	//HUDClass = ALyraHUD::StaticClass();
 }
@@ -31,17 +32,17 @@ ADemoGameMode::ADemoGameMode(const FObjectInitializer& ObjectInitializer)
 const UDemoPawnData* ADemoGameMode::GetPawnDataForController(const AController* InController) const
 {
 	// See if pawn data is already set on the player state
-	/*if (InController != nullptr)
+	if (InController != nullptr)
 	{
-		if (const ALyraPlayerState* LyraPS = InController->GetPlayerState<ALyraPlayerState>())
+		if (const ADemoPlayerState* LyraPS = InController->GetPlayerState<ADemoPlayerState>())
 		{
-			if (const ULyraPawnData* PawnData = LyraPS->GetPawnData<ULyraPawnData>())
+			if (const UDemoPawnData* PawnData = LyraPS->GetPawnData<UDemoPawnData>())
 			{
 				return PawnData;
 			}
 		}
 	}
-
+/*
 	// If not, fall back to the the default for the current experience
 	check(GameState);
 	ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
