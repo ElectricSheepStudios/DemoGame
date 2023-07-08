@@ -32,7 +32,7 @@ public:
 
 	// Class to instantiate for this pawn (should usually derive from ALyraPawn or ALyraCharacter).
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Lyra|Pawn")
-		TSubclassOf<APawn> PawnClass;
+	TSubclassOf<APawn> PawnClass;
 
 	// Ability sets to grant to this pawn's ability system.
 	//UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Lyra|Abilities")

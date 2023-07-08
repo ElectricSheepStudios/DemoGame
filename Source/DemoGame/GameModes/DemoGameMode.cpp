@@ -5,6 +5,7 @@
 #include "GameModes\LyraWorldSettings.h"
 #include "System\LyraAssetManager.h"
 #include "GameModes\LyraExperienceManagerComponent.h"
+#include "Character/LyraPawnExtensionComponent.h"
 #include "Character\DemoPawnData.h"
 #include "Player\DemoPlayerState.h"
 
@@ -76,6 +77,47 @@ void ADemoGameMode::InitGame(const FString& MapName, const FString& Options, FSt
 
 	//@TODO: Eventually only do this for PIE/auto
 	GetWorld()->GetTimerManager().SetTimerForNextTick(this, &ThisClass::HandleMatchAssignmentIfNotExpectingOne);
+}
+
+APawn* ADemoGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* NewPlayer, const FTransform& SpawnTransform)
+{
+
+	FActorSpawnParameters SpawnInfo;
+	SpawnInfo.Instigator = GetInstigator();
+	SpawnInfo.ObjectFlags |= RF_Transient;	// Never save the default player pawns into a map.
+	SpawnInfo.bDeferConstruction = true;
+
+	/*if (UClass* PawnClass = GetDefaultPawnClassForController(NewPlayer))
+	{
+		if (APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(PawnClass, SpawnTransform, SpawnInfo))
+		{
+			if (ULyraPawnExtensionComponent* PawnExtComp = ULyraPawnExtensionComponent::FindPawnExtensionComponent(SpawnedPawn))
+			{
+				if (const ULyraPawnData* PawnData = GetPawnDataForController(NewPlayer))
+				{
+					PawnExtComp->SetPawnData(PawnData);
+				}
+				else
+				{
+					UE_LOG(LogLyra, Error, TEXT("Game mode was unable to set PawnData on the spawned pawn [%s]."), *GetNameSafe(SpawnedPawn));
+				}
+			}
+
+			SpawnedPawn->FinishSpawning(SpawnTransform);
+
+			return SpawnedPawn;
+		}
+		else
+		{
+			UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn of class [%s] at [%s]."), *GetNameSafe(PawnClass), *SpawnTransform.ToHumanReadableString());
+		}
+	}
+	else
+	{
+		UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn due to NULL pawn class."));
+	}*/
+
+	return nullptr;
 }
 
 
