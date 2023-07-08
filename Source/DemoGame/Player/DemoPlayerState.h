@@ -43,6 +43,9 @@ public:
 	void SetPawnData(const UDemoPawnData* InPawnData);
 
 
+private:
+	void OnExperienceLoaded(const ULyraExperienceDefinition* CurrentExperience);
+
 
 
 protected:
@@ -52,6 +55,6 @@ protected:
 protected:
 
 	//UPROPERTY(ReplicatedUsing = OnRep_PawnData)
-		const UDemoPawnData* PawnData;
+	const UDemoPawnData* PawnData;
 
 };

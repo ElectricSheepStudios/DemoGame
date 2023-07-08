@@ -7,7 +7,7 @@
 #include "LyraExperienceDefinition.generated.h"
 
 class UGameFeatureAction;
-//class ULyraPawnData;
+class UDemoPawnData;
 class ULyraExperienceActionSet;
 
 /**
@@ -40,8 +40,8 @@ public:
 
 	/** The default pawn class to spawn for players */
 	//@TODO: Make soft?
-	//UPROPERTY(EditDefaultsOnly, Category=Gameplay)
-	//TObjectPtr<const ULyraPawnData> DefaultPawnData;
+	UPROPERTY(EditDefaultsOnly, Category=Gameplay)
+	TObjectPtr<const UDemoPawnData> DefaultPawnData;
 
 
 	// List of actions to perform as this experience is loaded/activated/deactivated/unloaded
@@ -51,4 +51,7 @@ public:
 	// List of additional action sets to compose into this experience
 	UPROPERTY(EditDefaultsOnly, Category=Gameplay)
 	TArray<TObjectPtr<ULyraExperienceActionSet>> ActionSets;
+
+
+
 };

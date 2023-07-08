@@ -59,6 +59,10 @@ public:
 	// Returns true if the experience is fully loaded
 	bool IsExperienceLoaded() const;
 
+	// This returns the current experience if it is fully loaded, asserting otherwise
+	// (i.e., if you called it too soon)
+	const ULyraExperienceDefinition* GetCurrentExperienceChecked() const;
+
 
 private:
 	UFUNCTION()

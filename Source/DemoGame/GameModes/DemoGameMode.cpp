@@ -43,7 +43,7 @@ const UDemoPawnData* ADemoGameMode::GetPawnDataForController(const AController* 
 			}
 		}
 	}
-/*
+
 	// If not, fall back to the the default for the current experience
 	check(GameState);
 	ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
@@ -58,8 +58,8 @@ const UDemoPawnData* ADemoGameMode::GetPawnDataForController(const AController* 
 		}
 
 		// Experience is loaded and there's still no pawn data, fall back to the default for now
-		return ULyraAssetManager::Get().GetDefaultPawnData();
-	}*/
+		//return ULyraAssetManager::Get().GetDefaultPawnData();
+	}
 
 
 	// Experience not loaded yet, so there is no pawn data to be had
@@ -87,19 +87,19 @@ APawn* ADemoGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* Ne
 	SpawnInfo.ObjectFlags |= RF_Transient;	// Never save the default player pawns into a map.
 	SpawnInfo.bDeferConstruction = true;
 
-	/*if (UClass* PawnClass = GetDefaultPawnClassForController(NewPlayer))
+	if (UClass* PawnClass = GetDefaultPawnClassForController(NewPlayer))
 	{
 		if (APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(PawnClass, SpawnTransform, SpawnInfo))
 		{
 			if (ULyraPawnExtensionComponent* PawnExtComp = ULyraPawnExtensionComponent::FindPawnExtensionComponent(SpawnedPawn))
 			{
-				if (const ULyraPawnData* PawnData = GetPawnDataForController(NewPlayer))
+				if (const UDemoPawnData* PawnData = GetPawnDataForController(NewPlayer))
 				{
 					PawnExtComp->SetPawnData(PawnData);
 				}
 				else
 				{
-					UE_LOG(LogLyra, Error, TEXT("Game mode was unable to set PawnData on the spawned pawn [%s]."), *GetNameSafe(SpawnedPawn));
+					//UE_LOG(LogLyra, Error, TEXT("Game mode was unable to set PawnData on the spawned pawn [%s]."), *GetNameSafe(SpawnedPawn));
 				}
 			}
 
@@ -109,13 +109,13 @@ APawn* ADemoGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* Ne
 		}
 		else
 		{
-			UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn of class [%s] at [%s]."), *GetNameSafe(PawnClass), *SpawnTransform.ToHumanReadableString());
+			//UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn of class [%s] at [%s]."), *GetNameSafe(PawnClass), *SpawnTransform.ToHumanReadableString());
 		}
 	}
 	else
 	{
-		UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn due to NULL pawn class."));
-	}*/
+		//UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn due to NULL pawn class."));
+	}
 
 	return nullptr;
 }

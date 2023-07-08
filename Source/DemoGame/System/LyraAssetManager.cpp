@@ -5,7 +5,7 @@
 //#include "LyraGameplayTags.h"
 //#include "LyraGameData.h"
 //#include "AbilitySystemGlobals.h"
-//#include "Character/LyraPawnData.h"
+#include "Character\DemoPawnData.h"
 #include "Stats/StatsMisc.h"
 #include "Engine/Engine.h"
 //#include "AbilitySystem/LyraGameplayCueManager.h"
@@ -42,3 +42,8 @@ ULyraAssetManager& ULyraAssetManager::Get()
 	// Fatal error above prevents this from being called.
 	return *NewObject<ULyraAssetManager>();
 }
+
+//const UDemoPawnData* ULyraAssetManager::GetDefaultPawnData() const
+//{
+	//return GetAsset(DefaultPawnData);
+//}

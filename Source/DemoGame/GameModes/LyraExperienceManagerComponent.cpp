@@ -113,6 +113,13 @@ bool ULyraExperienceManagerComponent::IsExperienceLoaded() const
 	return (LoadState == ELyraExperienceLoadState::Loaded) && (CurrentExperience != nullptr);
 }
 
+const ULyraExperienceDefinition* ULyraExperienceManagerComponent::GetCurrentExperienceChecked() const
+{
+	check(LoadState == ELyraExperienceLoadState::Loaded);
+	check(CurrentExperience != nullptr);
+	return CurrentExperience;
+}
+
 void ULyraExperienceManagerComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
