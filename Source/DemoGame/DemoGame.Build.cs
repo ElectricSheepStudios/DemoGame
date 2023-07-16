@@ -39,7 +39,8 @@ public class DemoGame : ModuleRules
             new string[] {
                 "CommonGame",
                 "CommonUser",
-                "CommonUI"
+                "CommonUI",
+                "EnhancedInput"
             }
         );
 
